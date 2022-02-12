@@ -62,6 +62,7 @@ def get_video_metadata(video_id, compute_language=True):
     # we could truncate description to spare some space
     description = str(yt_info["snippet"]["description"])
     uploader = yt_info["snippet"]["channelTitle"]
+    uploader_id = yt_info["snippet"]["channelId"]
     if compute_language:
         language = compute_video_language(uploader, title, description)
     else:
@@ -75,6 +76,7 @@ def get_video_metadata(video_id, compute_language=True):
         "publication_date": published_date,
         "views": nb_views,
         "uploader": uploader,
+        "uploader_id": uploader_id,
         "language": language,
         "tags": tags,
         "duration": duration,
